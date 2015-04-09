@@ -1,0 +1,25 @@
+Matric: A0119447Y
+Name:	Lei Mingyu
+
+This is a simple web application for counting number. Sometimes, when we are counting the attendance, we will softly speak “one, two, three, …” However, if the number is too large, it’s possible for the counter to get lost. Then he might need to start again (so troublesome!). Fortunately, this app will help (yay!) When you want to count, just enter the ‘Counter’ page, and tap anywhere on the screen to ‘count’. Each time when the screen is tapped, a click sound will be played, so the user gets the feedback and he just need to keep track of whether the click sound is played for each person, but not remembering every number during counting. Finally, the user can click ‘Save’ from the bottom tool bar to save this record, he can also reset the count by clicking ‘Reset’. The record saved can be viewed from the record page.
+
+However, if we only make the app like a normal counter, it will be too boring! Therefore, I also add a Game mode for the counter. The rules are really simple, the player needs to tap the screen for as many times as possible in 5 seconds. The counts will be recorded, and if you get a new high score, the font will be red to show your victory (sorry it is supposed to be some fancy effects here). 
+
+You can always check the statistics of your usage of this app, the stats that the app currently supports are 
+	1) total number of taps;
+	2) total number of games you have played;
+	3) the highest score (i.e. maximum number of counts in 5 seconds).
+
+The structure of this app is:
+
+index.html (where the main content goes)
+static/
+	css/
+		chui-io-3.5.2.css (chui css)
+		screen.css (customized css file, generated from the sass file by compass)
+	js/
+		chui-3.5.2.js (chui js)
+		main.js (customized javascript)
+
+
+I also import the TweenMax js library for displaying the progress bar in the game mode; and I used font-awesome library for the logo in the home page.
