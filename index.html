@@ -82,7 +82,7 @@
 
 	<nav class="next">
 		<a class="button back">Back</a>
-		<h1>Game</h1>
+		<h1>Result</h1>
 	</nav>
 	<article id="game" class="next" data-id="">
 		<section>
@@ -92,8 +92,22 @@
 				</div>
 			</div>
 
-			<div class="progress white">
-				<div id="progress" class="red progress"></div>
+			<div class="progress back">
+				<div id="progress" class="fore progress"></div>
+			</div>
+		</section>
+	</article>
+
+	<nav class="next">
+		<a class="button" id='go-home'>Home</a>
+		<h1>Result</h1>
+	</nav>
+	<article id="game-result" class="next" data-id="">
+		<section>
+			<div class="grid center gutter-5 result-display">
+				<div class="col flex-3">
+					<span id="result-count">0</span>
+				</div>
 			</div>
 		</section>
 	</article>
@@ -145,6 +159,15 @@
 					</div>
 					<aside>
 						<h4><span id="stats-total-games"></span></h4>
+					</aside>
+				</li>
+
+				<li class='comp'>
+					<div>
+						<h3>Max taps in 5 seconds</h3>
+					</div>
+					<aside>
+						<h4><span id="stats-best-result"></span></h4>
 					</aside>
 				</li>
 			</ul>   
