@@ -47,7 +47,42 @@ textarea {
   font-size: 100px;
 }
 
-/* line 55, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
+#game {
+  overflow: hidden;
+}
+/* line 58, ../sass/screen.scss */
+#game .col {
+  text-align: center;
+}
+/* line 61, ../sass/screen.scss */
+#game .game-display {
+  margin-top: 40% !important;
+}
+/* line 64, ../sass/screen.scss */
+#game #game-count {
+  font-size: 100px;
+}
+
+/* line 69, ../sass/screen.scss */
 .tab-btn {
   width: 50% !important;
+}
+
+/* line 75, ../sass/screen.scss */
+.progress {
+  width: 90vw;
+  height: 10px;
+  margin-top: 5px;
+}
+
+/* line 81, ../sass/screen.scss */
+.red {
+  background-color: red;
+}
+
+/* line 85, ../sass/screen.scss */
+.white {
+  background-color: white;
+  margin-left: 5vw;
 }

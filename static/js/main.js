@@ -1,6 +1,7 @@
 
 var stats = {
 	totalTap : 0,
+	totalGame : 0,
 };
 
 var record = [
@@ -20,6 +21,7 @@ $('#stats-reset').on('singletap', function() {
 		callback: function() {
 			stats = {
 				totalTap : 0,
+				totalGame : 0,
 			};
 			updateStats();
 		}
@@ -38,6 +40,12 @@ $('#counter-reset').on('singletap', function() {
 
 $('#counter-reset-tool').click(function() {
 	processResetCounter();
+});
+
+$('#game').on('tap', function() {
+	$('#game-count').html($('#game-count').html() - 1 + 2);
+	stats.totalTap ++;
+	updateStats();
 });
 
 $('#record-clear').click(function() {
@@ -75,7 +83,13 @@ $("#record-save").on("singletap", function() {
 	$.UIGoToArticle("#home");
 });
 
+$('#game-entry').click(function() {
+	var masterTimeline = new TimelineLite();
+	masterTimeline.to("", 5, {});
 
+	masterTimeline.from("#progress", masterTimeline.duration(),
+		{scaleX: 0, transformOrigin:"left center"}, 0)
+});
 
 $(function() {
 	$('#stats-total-taps').html(stats.totalTap);
@@ -89,6 +103,7 @@ function addRecord(count, desc) {
 
 function updateStats() {
 	$('#stats-total-taps').html(stats.totalTap);
+	$('#stats-total-games').html(stats.totalGame);
 }
 
 function processResetCounter() {

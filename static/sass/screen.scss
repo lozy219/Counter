@@ -52,6 +52,37 @@ textarea {
 		font-size: 100px;
 	}
 }
+
+#game {
+	overflow: hidden;
+	.col {
+		text-align: center;
+	}
+	.game-display {
+		margin-top: 40% !important;
+	}
+	#game-count {
+		font-size: 100px;
+	}
+}
+
 .tab-btn {
 	width: 50% !important;
+}
+
+
+
+.progress{
+  width:90vw;
+  height:10px;
+  margin-top:5px;
+}
+
+.red{
+  background-color:red; 
+}
+
+.white{
+  background-color:white;
+  margin-left: 5vw;
 }
