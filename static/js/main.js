@@ -94,12 +94,15 @@ $('#game-entry').click(function() {
 
 	setTimeout(function() {
 		stats.totalGame ++;
-		var count = $('#game-count').html()
+		var count = parseInt($('#game-count').html())
 		$('#result-count').html(count);
 		if (count > stats.maxCount) {
 			stats.maxCount = count;
 		}
+		updateStats();
 		$.UIGoToArticle("#game-result");
+
+		$('#game-count').html(0);
 	}, 5000);
 });
 
@@ -108,8 +111,14 @@ $('#go-home').click(function() {
 });
 
 $(function() {
+	if (localStorage.isStored) {
+		stats.totalTap = localStorage.totalTap;
+		stats.totalGame = localStorage.totalGame;
+		stats.maxCount = localStorage.maxCount;
+	}
 	updateStats();
 	updateRecords();
+	$('.display').css('margin-top', $(window).height() * 0.3);
 });
 
 function addRecord(count, desc) {
@@ -121,6 +130,11 @@ function updateStats() {
 	$('#stats-total-taps').html(stats.totalTap);
 	$('#stats-total-games').html(stats.totalGame);
 	$('#stats-best-result').html(stats.maxCount);
+
+	localStorage.setItem("totalTap", stats.totalTap);
+	localStorage.setItem("totalGame", stats.totalGame);
+	localStorage.setItem("maxCount", stats.maxCount);
+	localStorage.setItem("isStored", true);
 }
 
 function processResetCounter() {

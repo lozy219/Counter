@@ -38,10 +38,6 @@ textarea {
 #counter .col {
   text-align: center;
 }
-/* line 48, ../sass/screen.scss */
-#counter .counter-display {
-  margin-top: 40% !important;
-}
 /* line 51, ../sass/screen.scss */
 #counter #counter-count {
   font-size: 100px;
@@ -55,10 +51,6 @@ textarea {
 #game .col {
   text-align: center;
 }
-/* line 61, ../sass/screen.scss */
-#game .game-display {
-  margin-top: 40% !important;
-}
 /* line 64, ../sass/screen.scss */
 #game #game-count {
   font-size: 100px;
@@ -71,10 +63,6 @@ textarea {
 /* line 71, ../sass/screen.scss */
 #game-result .col {
   text-align: center;
-}
-/* line 74, ../sass/screen.scss */
-#game-result .result-display {
-  margin-top: 40% !important;
 }
 /* line 77, ../sass/screen.scss */
 #game-result #result-count {
@@ -90,7 +78,7 @@ textarea {
 .progress {
   width: 90vw;
   height: 10px;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 /* line 92, ../sass/screen.scss */
