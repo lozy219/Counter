@@ -1,13 +1,26 @@
 
 var stats = {
 	totalTap : 0,
-}
+};
+
+var record = [
+
+];
 
 $('#stats-reset').on('singletap', function() {
-	stats = {
-		totalTap : 0,
-	};
-	updateStats();
+	$.UIPopup({
+		id: "warning",
+		title: 'Are you sure?', 
+		message: 'This operation is irreversible.', 
+		cancelButton: 'Cancel', 
+		continueButton: 'Reset', 
+		callback: function() {
+			stats = {
+				totalTap : 0,
+			};
+			updateStats();
+		}
+	});
 });
 
 $('#counter').on('tap', function() {
@@ -17,19 +30,55 @@ $('#counter').on('tap', function() {
 });
 
 $('#counter-reset').on('singletap', function() {
-	$('#counter-count').html(0);
+	processResetCounter();
 });
+
+$('#counter-reset-tool').click(function() {
+	processResetCounter();
+});
+
+$('#counter-save-tool').click(function() {
+	$('#counter-count-no').val($('#counter-count').html());
+	$.UIGoToArticle("#counter-save-record");
+});
+
+$("#record-save").on("singletap", function() { 
+	var count = $("#counter-count-no").val();
+	var desc = $("#counter-description").val();
+
+	if (desc.length < 1) {
+		desc = "Untitled"; 
+	}
+	addRecord(count, desc);
+	$.UIGoToArticle("#home");
+});
+
+
 
 $(function() {
 	$('#stats-total-taps').html(stats.totalTap);
 });
 
+function addRecord(count, desc) {
+	record.push({desc: desc, count: count});
+}
+
 function updateStats() {
 	$('#stats-total-taps').html(stats.totalTap);
 }
 
-
-
+function processResetCounter() {
+	$.UIPopup({
+		id: "warning",
+		title: 'Are you sure?', 
+		message: 'This operation is irreversible.', 
+		cancelButton: 'Cancel', 
+		continueButton: 'Reset', 
+		callback: function() {
+			$('#counter-count').html(0);
+		}
+	});
+}
 
 
 
