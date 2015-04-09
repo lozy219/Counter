@@ -72,6 +72,7 @@ $('#record-clear').click(function() {
 
 $('#counter-save-tool').click(function() {
 	$('#counter-count-no').val($('#counter-count').html());
+	$("#counter-description").val('');
 	$.UIGoToArticle("#counter-save-record");
 });
 
@@ -95,10 +96,12 @@ $('#game-entry').click(function() {
 
 	setTimeout(function() {
 		stats.totalGame ++;
-		var count = parseInt($('#game-count').html())
-		$('#result-count').html(count);
+		var count = parseInt($('#game-count').html());
 		if (count > stats.maxCount) {
 			stats.maxCount = count;
+			$('#result-count').html('<span style="color: red">' + count + '</span>');
+		} else {
+			$('#result-count').html(count);
 		}
 		updateStats();
 		$.UIGoToArticle("#game-result");
@@ -120,7 +123,7 @@ $(function() {
 	}
 	updateStats();
 	updateRecords();
-	$('.display').css('margin-top', $(window).height() * 0.3);
+	$('.display').css('margin-top', $(document).height() * 0.4);
 });
 
 function addRecord(count, desc) {
