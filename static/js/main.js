@@ -64,6 +64,7 @@ $('#record-clear').click(function() {
 					count : 0
 				}
 			];
+			console.log(record);
 			updateRecords();
 		}
 	});
@@ -115,6 +116,7 @@ $(function() {
 		stats.totalTap = localStorage.totalTap;
 		stats.totalGame = localStorage.totalGame;
 		stats.maxCount = localStorage.maxCount;
+		record = localStorage.record;
 	}
 	updateStats();
 	updateRecords();
@@ -130,10 +132,14 @@ function updateStats() {
 	$('#stats-total-taps').html(stats.totalTap);
 	$('#stats-total-games').html(stats.totalGame);
 	$('#stats-best-result').html(stats.maxCount);
+	handleStorage();
+}
 
+function handleStorage() {
 	localStorage.setItem("totalTap", stats.totalTap);
 	localStorage.setItem("totalGame", stats.totalGame);
 	localStorage.setItem("maxCount", stats.maxCount);
+	localStorage.setItem("record", record);
 	localStorage.setItem("isStored", true);
 }
 
@@ -151,9 +157,11 @@ function processResetCounter() {
 }
 
 function updateRecords() {
+	$('#record-list').html('');
 	for (var i = 1; i < record.length; i ++) {
 		listRecord(i);
 	}
+	handleStorage();
 }
 
 function listRecord(i) {
