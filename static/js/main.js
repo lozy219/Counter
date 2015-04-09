@@ -4,7 +4,10 @@ var stats = {
 };
 
 var record = [
-
+	{
+		desc : "demo", 
+		count : 0
+	}
 ];
 
 $('#stats-reset').on('singletap', function() {
@@ -37,6 +40,25 @@ $('#counter-reset-tool').click(function() {
 	processResetCounter();
 });
 
+$('#record-clear').click(function() {
+	$.UIPopup({
+		id: "warning",
+		title: 'Are you sure?', 
+		message: 'This operation is irreversible.', 
+		cancelButton: 'Cancel', 
+		continueButton: 'Clear', 
+		callback: function() {
+			record = [
+				{
+					desc : "demo", 
+					count : 0
+				}
+			];
+			updateRecords();
+		}
+	});
+});
+
 $('#counter-save-tool').click(function() {
 	$('#counter-count-no').val($('#counter-count').html());
 	$.UIGoToArticle("#counter-save-record");
@@ -57,10 +79,12 @@ $("#record-save").on("singletap", function() {
 
 $(function() {
 	$('#stats-total-taps').html(stats.totalTap);
+	updateRecords();
 });
 
 function addRecord(count, desc) {
 	record.push({desc: desc, count: count});
+	updateRecords();
 }
 
 function updateStats() {
@@ -78,6 +102,21 @@ function processResetCounter() {
 			$('#counter-count').html(0);
 		}
 	});
+}
+
+function updateRecords() {
+	for (var i = 1; i < record.length; i ++) {
+		listRecord(i);
+	}
+}
+
+function listRecord(i) {
+	console.log(record);
+	var listHtml = "<li class='comp' data-goto='people'>" +
+						"<div><h3>" + record[i].desc + "</h3></div>" +
+						"<aside><h4>" + record[i].count + "</h4></aside>" +
+					"</li>";
+	$('#record-list').append(listHtml);
 }
 
 
