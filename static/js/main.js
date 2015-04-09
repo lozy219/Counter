@@ -123,7 +123,7 @@ $(function() {
 	}
 	updateStats();
 	updateRecords();
-	$('.display').css('margin-top', $(document).height() * 0.4);
+	$('.display').attr('style', 'margin-top:' + $(document).height() * 0.2 + 'px !important');
 });
 
 function addRecord(count, desc) {
