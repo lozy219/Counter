@@ -1,3 +1,43 @@
+
+var stats = {
+	totalTap : 0,
+}
+
+$('#counter').on('tap', function() {
+	$('#counter-count').html($('#counter-count').html() - 1 + 2);
+	stats.totalTap ++;
+	updateStats();
+});
+
+$('#counter-reset').on('singletap', function() {
+	$('#counter-count').html(0);
+});
+
+$('#stats-reset').on('singletap', function() {
+	alert('a');
+	// stats = {
+	// 	totalTap : 0,
+	// };
+	// updateStats();
+});
+
+$(function() {
+	$('#stats-total-taps').html(stats.totalTap);
+});
+
+function updateStats() {
+	$('#stats-total-taps').html(stats.totalTap);
+}
+
+
+
+
+
+
+
+
+
+
 $('#goto-new-note').on('singletap', function() {
 	$.UIGoToArticle("#note-new");
 });

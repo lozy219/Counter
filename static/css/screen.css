@@ -1,0 +1,31 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../sass/screen.scss */
+#home {
+  height: 50%;
+  overflow: hidden;
+}
+
+/* line 22, ../sass/screen.scss */
+.btn-danger {
+  color: #ff3b30 !important;
+}
+
+/* line 26, ../sass/screen.scss */
+#counter {
+  overflow: hidden;
+}
+/* line 28, ../sass/screen.scss */
+#counter .col {
+  text-align: center;
+}
+/* line 31, ../sass/screen.scss */
+#counter .counter-display {
+  margin-top: 40% !important;
+}
+/* line 34, ../sass/screen.scss */
+#counter #counter-count {
+  font-size: 100px;
+}
