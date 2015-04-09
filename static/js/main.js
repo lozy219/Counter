@@ -31,6 +31,10 @@ $('#stats-reset').on('singletap', function() {
 });
 
 $('#counter').on('tap', function() {
+	var audio = new Audio();
+    audio.src = "http://www.soundjay.com/switch/switch-22a.wav"
+    audio.play();
+
 	$('#counter-count').html($('#counter-count').html() - 1 + 2);
 	stats.totalTap ++;
 	updateStats();
@@ -45,6 +49,12 @@ $('#counter-reset-tool').click(function() {
 });
 
 $('#game').on('tap', function() {
+	var audio = new Audio();
+    audio.src = "http://www.soundjay.com/switch/switch-22a.wav"
+    audio.addEventListener('load', function () {
+        audio.play();
+    });
+
 	$('#game-count').html($('#game-count').html() - 1 + 2);
 	stats.totalTap ++;
 	updateStats();
